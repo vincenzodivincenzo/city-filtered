@@ -5,6 +5,9 @@
 # inline; delete a section entirely if it doesn't apply to you (e.g. no calendar, no
 # community source, no social ladder goal).
 
+# Bump this when the schema changes; the skill compares it on every run.
+config_version: 1
+
 # --- A. Where -----------------------------------------------------------------
 location:
   city: "Lisbon"

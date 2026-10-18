@@ -1,5 +1,6 @@
 ---
 name: city-filtered
+argument-hint: "[init]"
 description: Build a personal, city-agnostic weekly events roundup. Discovers what's on near you from the platforms people actually use in your city, filters it through your own interests and existing commitments, and publishes a designed "issue" (Artifact + local file) of only the events worth your time. Run "city-filtered init" once to set up; run "city-filtered" (no argument) any time after to generate a new issue.
 ---
 
@@ -20,8 +21,10 @@ This skill has two modes. Detect which one applies at the start of every run:
 
 The config file is the only state this skill keeps between runs. Look for it at
 `~/.claude/skills/city-filtered/config.yaml` first; if the user's invocation names a
-different path, use that instead and remember it inside the config's own `config_path`
-comment isn't necessary - just reuse whatever path you found it at.
+different path, use that one instead for the rest of the run. The file carries a
+`config_version` field; if it is missing or lower than the version in `config.example.yaml`,
+tell the user which fields changed and offer to re-run the relevant setup step rather than
+guessing.
 
 ---
 
@@ -141,7 +144,8 @@ Confirm:
 
 ### Write the config and confirm
 
-Write `config.yaml` to `~/.claude/skills/city-filtered/config.yaml` (or wherever the user
+Write `config.yaml` (with `config_version` set to the value in `config.example.yaml`) to
+`~/.claude/skills/city-filtered/config.yaml` (or wherever the user
 asked for it - a project-local path is fine too if they intend to run this from a repo
 checkout). Show the full config back as a short human-readable summary - city, sources,
 interests, exclusions, output path - and ask for a final go-ahead before treating setup as

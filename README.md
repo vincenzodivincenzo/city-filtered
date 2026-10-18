@@ -25,12 +25,13 @@ filters. Every pick is a link back to the original source - you decide, you clic
 
 ## Install
 
-1. Clone this repo (or just download the `city-filtered/` folder).
-2. Copy it into your Claude Code skills directory:
+1. Clone this repo straight into your Claude Code skills directory:
    ```bash
-   cp -r city-filtered ~/.claude/skills/city-filtered
+   git clone https://github.com/vincenzodivincenzo/city-filtered ~/.claude/skills/city-filtered
    ```
-3. In Claude Code, run:
+   Your personal `config.yaml` is written into that same folder and is git-ignored, so a
+   later `git pull` updates the skill without touching your setup.
+2. In Claude Code, run:
    ```
    /city-filtered init
    ```
@@ -38,7 +39,7 @@ filters. Every pick is a link back to the original source - you decide, you clic
    actually relevant there (it searches for this rather than assuming Western defaults),
    any personal/community source you belong to, calendar integration, and - the part that
    makes the output personal - what you actually care about.
-4. After that, just run:
+3. After that, just run:
    ```
    /city-filtered
    ```
@@ -94,7 +95,9 @@ Read `SKILL.md` for the full instruction set the skill follows. Two things worth
 ## Contributing
 
 This is a small skill, not a platform - issues and PRs adding coverage for platforms in
-underrepresented regions, or fixes to the setup flow, are welcome.
+underrepresented regions, or fixes to the setup flow, are welcome. Forks that ship a
+ready-made design for one city (palette, type, a motif drawn from that city's own visual
+vernacular) are encouraged too; keep this repo the city-agnostic baseline.
 
 ## License
 
